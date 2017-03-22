@@ -21,7 +21,7 @@ var losses = 0;
   
 //YOUR CODE GOES HERE
 //declare and set 'wins' variable to 0 below
-
+var wins = 0;
 			
 var play = function(playerChoice) {
 
@@ -31,6 +31,8 @@ var play = function(playerChoice) {
   //TO DO: enter code to match 'player' above for 'opponent' and 'results'
 	
   //YOUR CODE GOES HERE 
+  document.getElementById('opponent').innerHTML = '';
+  document.getElementById('results').innerHTML = '';
 
 	//The user makes their choice, which sets that value (rock, paper, or scissors) to 'player'  
 	//This is our very first Javascript conditional statement!
@@ -64,12 +66,12 @@ var play = function(playerChoice) {
   } else if (computerChoice <= 0.67 && computerChoice > 0.33) {
     //TO DO: set computer choice equal to paper here
     //YOUR CODE GOES HERE
-
-    
+    computerChoice= 'paper';
   //otherwise, choice will be scissors
   } else {
     //TO DO: set computer choice equal to scissors here
     //YOUR CODE GOES HERE
+      computerChoice= 'scissors';
   } 
 
   //when we get the element by the 'opponent' ID, the computer's choice is then printed on the page
@@ -117,7 +119,12 @@ var play = function(playerChoice) {
 
   document.getElementById('results').innerHTML = winner;
   //TO DO: enter code to match 'winner' above for 'wins' and 'losses'
-
+//  var score = function(){
+//      if (compare= "rock wins!" || "paper wins!" || "scissors win!"){
+//          document.getElementById('wins').innerHTML = wins++;
+//      }
+//  }
+  }
   //YOUR CODE GOES HERE
 					
   if (wins > 99 || losses > 99) {
@@ -126,12 +133,13 @@ var play = function(playerChoice) {
 //TO DO: enter code for if wins are greater than 999, and if losses are greater than 999, with proper syntax. Don't forget closing brackets and semi-colons!
 
 // You can use (copy & paste) these alerts:
-// alert('You reached the max score of 999. <br />Congratulations, you have no life.')
-// alert('Your opponent reached the max score of 999. <br />Sorry, you have no life.')
-
+ if (wins > 999) {   
+ alert('You reached the max score of 999. <br />Congratulations, you have no life.')
+ }
+ else if (losses >999){    
+ alert('Your opponent reached the max score of 999. <br />Sorry, you have no life.')
+ }
 //YOUR CODE GOES HERE
-    
-};
 
 //this function is fired when the reset button is pressed, which clears out the scores
 var reset = function() {
@@ -139,6 +147,6 @@ var reset = function() {
   wins = 0;
   document.getElementById('wins').innerHTML = wins;
   //TO DO: enter code to match 'wins' above for 'losses'
-
+  document.getElementById('losses').innerHTML = losses;
   //YOUR CODE GOES HERE
 };
